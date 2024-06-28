@@ -3,6 +3,9 @@ const app = express()
 
 app.use(express.json())
 
+const morgan = require('morgan')
+app.use(morgan('tiny'))
+
 let persons = [
     { 
       "id": "1",
@@ -29,6 +32,8 @@ let persons = [
 app.get('/api/persons',(request, response)=>{
     response.json(persons)
 })
+
+
 
 app.get('/info', (request,response)=>{
     const count = persons.length
