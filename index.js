@@ -33,6 +33,19 @@ app.get('/info', (request,response)=>{
     response.send(`<p>Phonebook has info for ${count} people</p><p>${new Date(Date.now()).toLocaleString('EN-GB')}</p>`)
 })
 
+app.get('/api/persons/:id', (request, response)=>{
+    const id = request.params.id
+    const person = persons.find(p=>p.id===id)
+    if(person){
+    response.json(person)
+    }
+    else{
+    response.status(404).json({
+        'error': 'invalid ID'
+    })
+    }
+})
+
 const PORT = 3002
 app.listen(PORT)
 console.log(`Server running on port ${PORT}`)
