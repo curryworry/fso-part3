@@ -3,6 +3,9 @@ const app = express()
 
 app.use(express.json())
 
+const cors = require('cors')
+app.use(cors())
+
 const morgan = require('morgan')
 app.use(morgan(':method :url :status :res[content-length] - :response-time ms :req-body'))
 
@@ -105,6 +108,6 @@ app.post('/api/persons',(request, response)=>{
     response.json(person)
 })
 
-const PORT = 3002
+const PORT = process.env.PORT || 3002
 app.listen(PORT)
 console.log(`Server running on port ${PORT}`)
