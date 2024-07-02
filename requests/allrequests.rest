@@ -1,0 +1,11 @@
+POST 'https://fso-part3-nrtv.onrender.com/api/persons'
+Content-Type: application/json
+
+{
+    "name": "Asher312",
+    "number": "021-391-909"
+}
+
+###
+
+GET 'https://fso-part3-nrtv.onrender.com/api/persons'
